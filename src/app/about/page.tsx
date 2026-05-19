@@ -14,13 +14,27 @@ const AboutPage = () => {
         <section>
           <h2 className="text-2xl font-bold mb-4">Skills</h2>
           <div className="flex flex-wrap gap-3">
-            <span className="bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">JavaScript</span>
-            <span className="bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">TypeScript</span>
-            <span className="bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">React</span>
-            <span className="bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">Next.js</span>
-            <span className="bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">Node.js</span>
-            <span className="bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">Tailwind CSS</span>
-            <span className="bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">Git/GitHub</span>
+            <span className="bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">
+              JavaScript
+            </span>
+            <span className="bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">
+              TypeScript
+            </span>
+            <span className="bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">
+              React
+            </span>
+            <span className="bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">
+              Next.js
+            </span>
+            <span className="bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">
+              Node.js
+            </span>
+            <span className="bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">
+              Tailwind CSS
+            </span>
+            <span className="bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">
+              Git/GitHub
+            </span>
           </div>
         </section>
       </div>
