@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 17 17 17; /* #111111 */
+    --foreground: 238 238 238; /* #eeeeee */
+    --card: 26 26 26; /* #1a1a1a */
+    --primary: 255 255 255; /* #ffffff */
+  }
+
+  body {
+    background-color: rgb(var(--background));
+    color: rgb(var(--foreground));
+  }
+}

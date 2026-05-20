@@ -31,7 +31,7 @@ const WorksPage = () => {
       <h1 className="text-3xl font-bold mb-8 text-center">My Works</h1>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {works.map((work) => (
-          <div key={work.id} className="bg-white rounded-lg shadow-md overflow-hidden">
+          <div key={work.id} className="bg-card rounded-lg border border-card overflow-hidden">
             <Image
               src={work.imageUrl}
               alt={work.title}
@@ -41,10 +41,10 @@ const WorksPage = () => {
             />
             <div className="p-6">
               <h2 className="text-xl font-bold mb-2">{work.title}</h2>
-              <p className="text-gray-700 mb-4">{work.description}</p>
+              <p className="text-foreground/80 mb-4">{work.description}</p>
               <Link
                 href={work.link}
-                className="text-blue-500 hover:underline"
+                className="text-primary hover:underline"
               >
                 View Details
               </Link>

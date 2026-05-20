@@ -7,12 +7,12 @@ export default function Home() {
         <h1 className="text-4xl md:text-6xl font-bold mb-4">
           Software Engineer
         </h1>
-        <p className="text-lg md:text-xl text-gray-600 mb-8">
+        <p className="text-lg md:text-xl text-foreground/80 mb-8">
           Building robust and scalable web applications.
         </p>
         <Link
           href="/works"
-          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full transition duration-300"
+          className="bg-primary text-background font-bold py-3 px-6 rounded-full hover:bg-primary/80 transition-colors duration-300"
         >
           View My Work
         </Link>

@@ -1,8 +1,8 @@
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-4">
+    <footer className="bg-background border-t border-card py-4">
       <div className="container mx-auto px-4 text-center">
-        <p>
+        <p className="text-foreground/60">
           &copy; {new Date().getFullYear()} My Portfolio. All Rights Reserved.
         </p>
       </div>
