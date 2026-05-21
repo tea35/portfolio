@@ -9,10 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "rgb(var(--background) / <alpha-value>)",
-        foreground: "rgb(var(--foreground) / <alpha-value>)",
-        card: "rgb(var(--card) / <alpha-value>)",
-        primary: "rgb(var(--primary) / <alpha-value>)",
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        card: "var(--card)",
+        primary: "var(--primary)",
       },
     },
   },

@@ -4,14 +4,20 @@
 
 @layer base {
   :root {
-    --background: 17 17 17; /* #111111 */
-    --foreground: 238 238 238; /* #eeeeee */
-    --card: 26 26 26; /* #1a1a1a */
-    --primary: 255 255 255; /* #ffffff */
+    --background: 17 17 17;
+    --foreground: 238 238 238;
+    --card: 26 26 26;
+    --primary: 255 255 255;
+    --secondary-background: 23 23 23;
   }
 
   body {
-    background-color: rgb(var(--background));
+    background-color: rgb(var(--secondary-background));
     color: rgb(var(--foreground));
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
   }
 }

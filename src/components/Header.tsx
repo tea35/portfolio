@@ -2,38 +2,34 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header className="bg-background border-b border-card">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+    <header className="sticky top-0 z-50 w-full bg-background border-b border-card">
+      <div className="w-full mx-auto px-4 py-4 flex items-center">
         <h1 className="text-2xl font-bold">
-          <Link href="/">My Portfolio</Link>
+          <Link href="/" className="no-underline text-foreground">
+            My Portfolio
+          </Link>
         </h1>
-        <nav>
-          <ul className="flex space-x-4">
-            <li>
-              <Link
-                href="/"
-                className="text-foreground/80 hover:text-primary transition-colors"
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/works"
-                className="text-foreground/80 hover:text-primary transition-colors"
-              >
-                Works
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/about"
-                className="text-foreground/80 hover:text-primary transition-colors"
-              >
-                About
-              </Link>
-            </li>
-          </ul>
+        <div className="flex-grow" />
+        {/* style属性を使って強制的にflex配置と24pxの隙間（gap）を作ります */}
+        <nav style={{ display: "flex", alignItems: "center", gap: "24px" }}>
+          <Link
+            href="/"
+            className="no-underline text-foreground/80 hover:text-foreground transition-colors whitespace-nowrap px-2 py-1"
+          >
+            Home
+          </Link>
+          <Link
+            href="/works"
+            className="no-underline text-foreground/80 hover:text-foreground transition-colors whitespace-nowrap px-2 py-1"
+          >
+            Works
+          </Link>
+          <Link
+            href="/about"
+            className="no-underline text-foreground/80 hover:text-foreground transition-colors whitespace-nowrap px-2 py-1"
+          >
+            About
+          </Link>
         </nav>
       </div>
     </header>
