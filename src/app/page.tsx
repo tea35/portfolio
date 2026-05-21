@@ -59,7 +59,7 @@ export default function HomePage() {
       >
         <div className="text-center space-y-4">
           <h2 className="text-5xl md:text-7xl font-extrabold tracking-tight">
-            Sato Kosei
+            tea
           </h2>
           <p className="text-xl md:text-2xl text-foreground/60 font-medium">
             Information Science Engineer & Researcher
@@ -130,8 +130,7 @@ export default function HomePage() {
                   Surround Depth Estimation
                 </h4>
                 <p className="text-foreground/70 mt-4 leading-relaxed">
-                  自動運転技術における、拡散モデル（Diffusion
-                  Models）とU-Netアーキテクチャを用いた自己学習型サラウンド深度推定の研究。
+                  自動運転技術
                 </p>
               </div>
               <div className="flex gap-2">
@@ -156,7 +155,7 @@ export default function HomePage() {
             About Me
           </h3>
           <p className="text-lg text-foreground/80 leading-relaxed max-w-3xl">
-            情報科学分野のエンジニアおよび研究者。Webアプリケーションの開発から自動運転アルゴリズム、深度予測モデルの研究まで、ソフトウェア工学と先端技術のクロスオーバーを軸に活動しています。
+            情報科学分野のエンジニア
           </p>
         </div>
 
