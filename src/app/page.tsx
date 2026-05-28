@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ease, fadeUp, fadeLeft, fadeScale, stagger } from "@/lib/motion";
+import StackSphere from "@/components/StackSphere";
 
 const vp = { once: true, margin: "-80px" } as const;
 
@@ -150,7 +151,7 @@ export default function HomePage() {
       <section
         ref={containerRef}
         id="works"
-        className="relative h-[200vh] w-full overflow-hidden bg-background border-y border-card/30"
+        className="relative h-[120vh] w-full overflow-hidden bg-background border-y border-card/30"
       >
         <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden">
           <div className="px-12 mb-8">
@@ -221,7 +222,7 @@ export default function HomePage() {
       {/* ===== About ===== */}
       <section
         id="about"
-        className="min-h-screen w-full flex flex-col justify-center px-12 py-24 max-w-5xl mx-auto space-y-16 bg-background relative z-10"
+        className="min-h-screen w-full flex flex-col justify-center px-12 py-16 max-w-5xl mx-auto space-y-10 bg-background relative z-10"
       >
         <div>
           <motion.h3
@@ -255,27 +256,12 @@ export default function HomePage() {
             Technical Stacks
           </motion.h3>
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-4"
-            variants={stagger}
+            variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={vp}
           >
-            {[
-              "React / Next.js",
-              "TypeScript",
-              "Tailwind CSS",
-              "Supabase",
-              "Python / PyTorch",
-            ].map((stack) => (
-              <motion.div
-                key={stack}
-                variants={fadeUp}
-                className="bg-card border border-card-border p-4 rounded-lg text-center font-medium"
-              >
-                {stack}
-              </motion.div>
-            ))}
+            <StackSphere />
           </motion.div>
         </div>
       </section>
