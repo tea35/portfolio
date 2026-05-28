@@ -1,19 +1,17 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-background: rgb(17, 17, 17);
+  --color-foreground: rgb(238, 238, 238);
+  --color-card: rgb(26, 26, 26);
+  --color-primary: rgb(255, 255, 255);
+  --color-secondary-background: rgb(23, 23, 23);
+}
 
 @layer base {
-  :root {
-    --background: 17 17 17;
-    --foreground: 238 238 238;
-    --card: 26 26 26;
-    --primary: 255 255 255;
-    --secondary-background: 23 23 23;
-  }
-
   body {
-    background-color: rgb(var(--secondary-background));
-    color: rgb(var(--foreground));
+    background-color: var(--color-secondary-background);
+    color: var(--color-foreground);
   }
 
   a {

@@ -2,27 +2,41 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header className="fixed top-0 left-0 right-0 z-[100] w-full bg-background border-b border-card">
+    <header
+      className="
+        fixed top-0 left-0 right-0
+        z-100 w-full
+        border-b border-card
+
+        bg-background/70
+        backdrop-blur-md
+        supports-[backdrop-filter:blur(1px)]:bg-background/60
+      "
+    >
       <div className="w-full mx-auto px-4 py-4 flex items-center">
         <h1 className="text-2xl font-bold">
           <Link href="#home" className="no-underline text-foreground">
             My Portfolio
           </Link>
         </h1>
+
         <div className="flex-grow" />
-        <nav style={{ display: "flex", alignItems: "center", gap: "24px" }}>
+
+        <nav className="flex items-center gap-6">
           <Link
             href="#home"
             className="no-underline text-foreground/80 hover:text-foreground transition-colors whitespace-nowrap px-2 py-1"
           >
             Home
           </Link>
+
           <Link
             href="#works"
             className="no-underline text-foreground/80 hover:text-foreground transition-colors whitespace-nowrap px-2 py-1"
           >
             Works
           </Link>
+
           <Link
             href="#about"
             className="no-underline text-foreground/80 hover:text-foreground transition-colors whitespace-nowrap px-2 py-1"

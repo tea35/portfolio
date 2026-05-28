@@ -71,7 +71,7 @@ export default function HomePage() {
       <section
         ref={containerRef}
         id="works"
-        className="relative h-[200vh] w-full overflow-x-auto overflow-y-visible scrollbar-none bg-background border-y border-card/30"
+        className="relative h-[200vh] w-full overflow-hidden overflow-y-visible scrollbar-none bg-background border-y border-card/30"
       >
         <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden">
           <div className="px-12 mb-8">
