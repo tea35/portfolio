@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ease } from "@/lib/motion";
+import HeroBg from "@/components/HeroBg";
 
 export default function HeroSection() {
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
@@ -24,17 +25,10 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="h-[80vh] w-full flex flex-col justify-center items-start px-12 relative overflow-hidden cursor-none"
+      className="h-[80vh] w-full flex flex-col justify-center items-start px-20 relative overflow-hidden cursor-none"
       onMouseMove={handleMouseMove}
     >
-      <div
-        id="spotlight"
-        className="pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full transition-[top,left] duration-75"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 65%)",
-        }}
-      />
+      <HeroBg />
       <div
         id="cursor-dot"
         className="pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full border border-foreground/60 transition-[top,left] duration-[40ms]"
@@ -71,7 +65,7 @@ export default function HeroSection() {
         </motion.p>
       </div>
 
-      <div className="absolute bottom-8 right-12 text-xs tracking-widest text-foreground/20">
+      <div className="absolute bottom-8 right-14 text-xs tracking-widest text-foreground/50">
         Scroll ↓
       </div>
     </section>
