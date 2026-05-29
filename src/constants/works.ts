@@ -31,3 +31,5 @@ export const works: Work[] = [
     tags: ["Python", "PyTorch"],
   },
 ];
+
+export const WORKS_PREVIEW_COUNT = 3;

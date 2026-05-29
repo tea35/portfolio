@@ -2,8 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { ease, fadeLeft, stagger } from "@/lib/motion";
+import { ease, fadeLeft, fadeUp, stagger } from "@/lib/motion";
 import { works } from "@/constants/works";
+import Link from "next/link";
 
 const vp = { once: true, margin: "-80px" } as const;
 
@@ -129,6 +130,20 @@ export default function WorksSection() {
           ))}
         </motion.div>
       </div>
+      <motion.div
+        className="px-12 mt-6"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={vp}
+      >
+        <Link
+          href="/works"
+          className="text-sm text-foreground/30 hover:text-primary transition-colors tracking-widest"
+        >
+          See more →
+        </Link>
+      </motion.div>
     </section>
   );
 }
