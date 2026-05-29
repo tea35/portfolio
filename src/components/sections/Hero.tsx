@@ -52,12 +52,12 @@ export default function HeroSection() {
       </div>
       <div className="overflow-hidden">
         <motion.p
-          className="text-sm tracking-[0.15em] text-foreground/40 uppercase"
+          className="text-sm tracking-[0.15em] text-primary uppercase"
           initial={{ y: "100%" }}
           animate={{ y: 0 }}
           transition={{ duration: 0.8, ease, delay: 0.15 }}
         >
-          Information Science Engineer & Researcher
+          Software Engineer
         </motion.p>
       </div>
 

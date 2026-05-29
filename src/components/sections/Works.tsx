@@ -87,7 +87,7 @@ export default function WorksSection() {
                 scale: activeCard !== null && activeCard !== i ? 0.97 : 1,
                 borderColor:
                   activeCard === i
-                    ? "rgba(255,255,255,0.3)"
+                    ? "var(--color-primary)"
                     : "rgba(255,255,255,0.08)",
               }}
               transition={{ duration: 0.3, ease }}
@@ -109,6 +109,10 @@ export default function WorksSection() {
                     <span
                       key={tag}
                       className="bg-foreground/5 px-3 py-1 rounded text-sm font-mono"
+                      style={{
+                        color: "var(--color-primary)",
+                        background: "rgba(168,200,74,0.08)",
+                      }}
                     >
                       {tag}
                     </span>
