@@ -78,11 +78,6 @@ export default function StackSphere() {
           const alpha = depthAlpha * fadeAlpha;
           const fontSize = Math.round(16 * scale);
 
-          ctx!.beginPath();
-          ctx!.arc(sx, sy, 2 * scale, 0, Math.PI * 2);
-          ctx!.fillStyle = `rgba(180,180,180,${alpha})`;
-          ctx!.fill();
-
           ctx!.font = `${fontSize}px monospace`;
           ctx!.fillStyle = `rgba(180,180,180,${alpha})`;
           ctx!.fillText(label, sx + 5 * scale, sy + 4 * scale);
