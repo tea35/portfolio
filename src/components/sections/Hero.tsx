@@ -43,19 +43,29 @@ export default function HeroSection() {
       <div className="overflow-hidden mb-2">
         <motion.h2
           className="text-[clamp(4rem,14vw,10rem)] font-extrabold tracking-tighter leading-none"
-          initial={{ y: "100%" }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.8, ease }}
+          initial={{
+            opacity: 0,
+            y: 80,
+            rotateX: 60,
+            transformOrigin: "bottom center",
+          }}
+          animate={{ opacity: 1, y: 0, rotateX: 0 }}
+          transition={{ duration: 2.0, ease }}
         >
           tea
         </motion.h2>
       </div>
       <div className="overflow-hidden">
         <motion.p
-          className="text-sm tracking-[0.15em] text-primary uppercase"
-          initial={{ y: "100%" }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.8, ease, delay: 0.15 }}
+          className="text-sm tracking-[0.15em] uppercase text-primary"
+          initial={{
+            opacity: 0,
+            y: 40,
+            rotateX: 45,
+            transformOrigin: "bottom center",
+          }}
+          animate={{ opacity: 1, y: 0, rotateX: 0 }}
+          transition={{ duration: 2.0, ease, delay: 0.3 }}
         >
           Software Engineer
         </motion.p>

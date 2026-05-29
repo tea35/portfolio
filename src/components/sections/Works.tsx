@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { ease, fadeLeft, fadeScale, stagger } from "@/lib/motion";
+import { ease, fadeLeft, stagger } from "@/lib/motion";
 import { works } from "@/constants/works";
 
 const vp = { once: true, margin: "-80px" } as const;
@@ -80,45 +80,51 @@ export default function WorksSection() {
           {works.map((work, i) => (
             <motion.div
               key={i}
-              variants={fadeScale}
-              onMouseEnter={() => setActiveCard(i)}
-              animate={{
-                opacity: activeCard !== null && activeCard !== i ? 0.4 : 1,
-                scale: activeCard !== null && activeCard !== i ? 0.97 : 1,
-                borderColor:
-                  activeCard === i
-                    ? "var(--color-primary)"
-                    : "rgba(255,255,255,0.08)",
-              }}
-              transition={{ duration: 0.3, ease }}
-              className="relative h-[50vh] rounded-xl border bg-card overflow-hidden cursor-pointer"
-              style={{ width: "min(45vw, 480px)" }}
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={vp}
+              transition={{ duration: 0.5, ease, delay: i * 0.3 }}
             >
-              <div className="absolute inset-0 p-8 flex flex-col justify-between">
-                <div>
-                  <span className="text-sm font-mono text-foreground/40 block mt-2">
-                    {work.num} / {work.category}
-                  </span>
-                  <h4 className="text-2xl font-bold mt-3">{work.title}</h4>
-                  <p className="text-foreground/60 mt-4 leading-relaxed text-sm">
-                    {work.description}
-                  </p>
-                </div>
-                <div className="flex gap-2 flex-wrap">
-                  {work.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="bg-foreground/5 px-3 py-1 rounded text-sm font-mono"
-                      style={{
-                        color: "var(--color-primary)",
-                        background: "rgba(168,200,74,0.08)",
-                      }}
-                    >
-                      {tag}
+              <motion.div
+                onMouseEnter={() => setActiveCard(i)}
+                animate={{
+                  opacity: activeCard !== null && activeCard !== i ? 0.4 : 1,
+                  scale: activeCard !== null && activeCard !== i ? 0.97 : 1,
+                  borderColor:
+                    activeCard === i
+                      ? "var(--color-primary)"
+                      : "rgba(255,255,255,0.08)",
+                }}
+                transition={{ duration: 0.6, ease }}
+                className="relative h-[50vh] rounded-xl border bg-card overflow-hidden cursor-pointer"
+                style={{ width: "min(45vw, 480px)" }}
+              >
+                <div className="absolute inset-0 p-8 flex flex-col justify-between">
+                  <div>
+                    <span className="text-sm font-mono text-foreground/40 block mt-2">
+                      {work.num} / {work.category}
                     </span>
-                  ))}
+                    <h4 className="text-2xl font-bold mt-3">{work.title}</h4>
+                    <p className="text-foreground/60 mt-4 leading-relaxed text-sm">
+                      {work.description}
+                    </p>
+                  </div>
+                  <div className="flex gap-2 flex-wrap">
+                    {work.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="bg-foreground/5 px-3 py-1 rounded text-sm font-mono"
+                        style={{
+                          color: "var(--color-primary)",
+                          background: "rgba(168,200,74,0.08)",
+                        }}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </motion.div>
