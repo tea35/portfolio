@@ -8,9 +8,8 @@ const Header = () => {
         z-100 w-full
         border-b border-card
 
-        bg-background/70
+        bg-header/70
         backdrop-blur-md
-        supports-[backdrop-filter:blur(1px)]:bg-background/60
       "
     >
       <div className="w-full mx-auto px-4 py-4 flex items-center">
