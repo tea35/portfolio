@@ -22,7 +22,7 @@ const Header = () => {
 
         <div className="flex-grow" />
 
-        <nav className="flex items-center gap-6">
+        <nav className="font-[--font-display] flex items-center gap-6">
           <Link
             href="#home"
             className="no-underline text-foreground/80 hover:text-foreground transition-colors whitespace-nowrap px-2 py-1"

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-const stacks = ["React", "Next.js", "TypeScript", "Python"];
+const stacks = ["React", "Next.js", "TypeScript", "Python", "HTML", "CSS"];
 
 export default function StackSphere() {
   const canvasRef = useRef<HTMLCanvasElement>(null);

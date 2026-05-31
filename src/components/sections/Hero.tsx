@@ -49,7 +49,7 @@ export default function HeroSection() {
           tea
         </motion.h2>
       </div>
-      <div className="overflow-hidden">
+      <div className="font-display overflow-hidden">
         <motion.p
           className="text-sm tracking-[0.15em] uppercase text-primary"
           initial={{
