@@ -10,7 +10,7 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="w-full flex flex-col justify-center px-12 py-16 space-y-10 bg-background relative z-10"
+      className="h-screen w-full flex flex-col justify-center px-12 py-16 space-y-10 bg-background relative z-10"
     >
       <div>
         <motion.h3

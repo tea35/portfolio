@@ -25,7 +25,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="h-[80vh] w-full flex flex-col justify-center items-start px-20 relative overflow-hidden cursor-none"
+      className="h-screen w-full flex flex-col justify-center items-start px-20 relative overflow-hidden cursor-none"
       onMouseMove={handleMouseMove}
     >
       <HeroBg />
