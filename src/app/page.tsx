@@ -1,22 +1,13 @@
-import Link from "next/link";
+import HeroSection from "@/components/sections/Hero";
+import WorksSection from "@/components/sections/Works";
+import AboutSection from "@/components/sections/About";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <main className="container mx-auto px-4">
-      <section className="text-center py-20">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">
-          Software Engineer
-        </h1>
-        <p className="text-lg md:text-xl text-foreground/80 mb-8">
-          Building robust and scalable web applications.
-        </p>
-        <Link
-          href="/works"
-          className="bg-primary text-background font-bold py-3 px-6 rounded-full hover:bg-primary/80 transition-colors duration-300"
-        >
-          View My Work
-        </Link>
-      </section>
-    </main>
+    <div className="w-full bg-background text-foreground selection:bg-primary/20">
+      <HeroSection />
+      <WorksSection />
+      <AboutSection />
+    </div>
   );
 }
