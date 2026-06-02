@@ -5,12 +5,9 @@ import { motion } from "framer-motion";
 import { fadeUp, fadeLeft, stagger } from "@/lib/motion";
 import { works } from "@/constants/works";
 
-const vp = { once: true, margin: "-80px" } as const;
-
 export default function WorksPage() {
   return (
     <div className="w-full min-h-screen bg-background text-foreground pt-24 pb-24">
-      {/* ヘッダー */}
       <div className="px-12 mb-16">
         <motion.div variants={fadeLeft} initial="hidden" animate="visible">
           <Link
@@ -42,7 +39,7 @@ export default function WorksPage() {
           <motion.div
             key={i}
             variants={fadeUp}
-            className="bg-card border border-card-border rounded-xl p-8 flex flex-col justify-between h-[300px] hover:border-primary/50 transition-colors duration-300"
+            className="bg-card border border-card-border rounded-xl p-8 flex flex-col justify-between h-75 hover:border-primary/50 transition-colors duration-300"
           >
             <div>
               <span className="text-sm font-mono text-foreground/40 block mb-3">

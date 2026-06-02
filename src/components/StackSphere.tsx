@@ -116,5 +116,5 @@ export default function StackSphere() {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="w-full h-[320px]" />;
+  return <canvas ref={canvasRef} className="w-full h-80" />;
 }

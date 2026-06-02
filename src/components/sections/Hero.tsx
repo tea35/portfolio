@@ -31,7 +31,7 @@ export default function HeroSection() {
       <HeroBg />
       <div
         id="cursor-dot"
-        className="pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full border border-foreground/60 transition-[top,left] duration-[40ms]"
+        className="pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full border border-foreground/60 transition-[top,left] duration-40ms"
       />
 
       <div className="overflow-hidden mb-2">

@@ -28,7 +28,7 @@ const Header = () => {
             </Link>
           </h1>
 
-          <div className="flex-grow" />
+          <div className="grow" />
 
           {/* デスクトップナビ */}
           <nav className="hidden md:flex items-center gap-6 font-body">
