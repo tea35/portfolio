@@ -3,7 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ease, fadeLeft, fadeUp, fadeScale } from "@/lib/motion";
+import { ease, fadeLeft, fadeUp } from "@/lib/motion";
 import { works } from "@/constants/works";
 
 const vp = { once: true, margin: "-80px" } as const;
@@ -30,11 +30,20 @@ export default function WorksSection() {
   };
 
   useEffect(() => {
-    if (cardRef.current) {
-      const w = cardRef.current.offsetWidth;
-      setCardWidth(w);
-      setCenterOffset((window.innerWidth - w) / 2);
-    }
+    const updateSize = () => {
+      if (cardRef.current) {
+        const w = cardRef.current.offsetWidth;
+        setCardWidth(w);
+        setCenterOffset((window.innerWidth - w) / 2);
+      }
+    };
+
+    updateSize();
+
+    const resizeObserver = new ResizeObserver(updateSize);
+    if (cardRef.current) resizeObserver.observe(cardRef.current);
+
+    return () => resizeObserver.disconnect();
   }, []);
 
   return (
@@ -42,7 +51,7 @@ export default function WorksSection() {
       id="works"
       className="relative w-full bg-background border-y border-card/30 py-24"
     >
-      <div className="px-12 mb-8">
+      <div className="px-[8vw] mb-8">
         <motion.h3
           className="text-3xl font-bold border-l-4 border-primary pl-4"
           variants={fadeLeft}
@@ -56,14 +65,14 @@ export default function WorksSection() {
 
       {/* カードエリア */}
       <div
-        className="relative overflow-hidden px-12"
+        className="relative overflow-hidden"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
         <motion.div
           className="flex gap-4"
           animate={{
-            x: -(currentIndex * (cardWidth + 16)) + centerOffset - 48,
+            x: -(currentIndex * (cardWidth + 16)) + centerOffset,
           }}
           transition={{ duration: 0.6, ease }}
         >
@@ -82,18 +91,20 @@ export default function WorksSection() {
                     : "rgba(255,255,255,0.08)",
               }}
               transition={{ duration: 1.0, ease }}
-              className={`relative flex-shrink-0 w-[min(80vw,480px)] h-[50vh] rounded-xl border bg-card overflow-hidden cursor-pointer ${
+              className={`relative flex-shrink-0 w-[min(80vw,480px)] h-[40vh] md:h-[50vh] rounded-xl border bg-card overflow-hidden cursor-pointer ${
                 i === currentIndex
                   ? "card-border-active border-transparent"
                   : "border-white/8"
               }`}
             >
-              <div className="absolute inset-0 p-8 flex flex-col justify-between z-2">
+              <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-between z-[2]">
                 <div>
                   <span className="text-sm font-mono text-foreground/40 block mt-2">
                     {work.num} / {work.category}
                   </span>
-                  <h4 className="text-2xl font-bold mt-3">{work.title}</h4>
+                  <h4 className="text-xl md:text-2xl font-bold mt-3">
+                    {work.title}
+                  </h4>
                   <p className="text-foreground/60 mt-4 leading-relaxed text-sm">
                     {work.description}
                   </p>
@@ -116,6 +127,7 @@ export default function WorksSection() {
             </motion.div>
           ))}
 
+          {/* See more カード */}
           <motion.div
             animate={{
               opacity: currentIndex === works.length ? 1 : 0.3,
@@ -126,25 +138,30 @@ export default function WorksSection() {
                   : "rgba(168,200,74,0.25)",
             }}
             transition={{ duration: 1.0, ease }}
-            className={`relative flex-shrink-0 w-[min(80vw,480px)] h-[50vh] rounded-xl border bg-card overflow-hidden cursor-pointer ${
+            className={`relative flex-shrink-0 w-[min(80vw,480px)] h-[40vh] md:h-[50vh] rounded-xl border overflow-hidden cursor-pointer ${
               currentIndex === works.length
                 ? "card-border-active border-transparent"
-                : "border-white/8"
+                : "border-dashed"
             }`}
+            style={{
+              borderColor:
+                currentIndex === works.length
+                  ? "var(--color-primary)"
+                  : "rgba(168,200,74,0.25)",
+            }}
           >
             <Link
               href="/works"
-              className="w-full h-full rounded-xl border border-dashed flex flex-col items-center justify-center gap-3 transition-colors duration-300 group"
-              style={{ borderColor: "rgba(168,200,74,0.25)" }}
+              className="w-full h-full flex flex-col items-center justify-center gap-3 group"
             >
               <span
-                className="text-s tracking-[0.2em] font-mono z-2"
+                className="text-xs tracking-[0.2em] font-mono z-[2]"
                 style={{ color: "rgba(168,200,74,0.5)" }}
               >
                 SEE MORE
               </span>
               <span
-                className="text-4xl transition-transform duration-300 group-hover:scale-110 z-2"
+                className="text-4xl transition-transform duration-300 group-hover:scale-110 z-[2]"
                 style={{ color: "rgba(168,200,74,0.5)" }}
               >
                 +
@@ -154,6 +171,7 @@ export default function WorksSection() {
         </motion.div>
       </div>
 
+      {/* ナビゲーション */}
       <motion.div
         className="flex items-center justify-center gap-6 mt-10"
         variants={fadeUp}
@@ -184,7 +202,6 @@ export default function WorksSection() {
             />
           ))}
         </div>
-
         <button
           onClick={next}
           disabled={currentIndex === works.length}
