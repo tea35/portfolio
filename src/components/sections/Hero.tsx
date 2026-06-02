@@ -25,7 +25,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="h-screen w-full flex flex-col justify-center items-start px-20 relative overflow-hidden cursor-none"
+      className="h-screen w-full flex flex-col justify-center items-start px-[8vw] relative overflow-hidden cursor-none"
       onMouseMove={handleMouseMove}
     >
       <HeroBg />
@@ -65,7 +65,7 @@ export default function HeroSection() {
         </motion.p>
       </div>
 
-      <div className="absolute bottom-8 right-14 text-xs tracking-widest text-foreground/50">
+      <div className="absolute bottom-8 right-[8vw] text-xs tracking-widest text-foreground/50">
         Scroll ↓
       </div>
     </section>
