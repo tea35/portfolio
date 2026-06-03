@@ -53,8 +53,6 @@ export default function HeroBg() {
       prevMy = my;
       mx = e.clientX - rect.left;
       my = e.clientY - rect.top;
-      cursorWindX = (mx - prevMx) * 0.15;
-      cursorWindY = (my - prevMy) * 0.15;
     };
 
     canvas.parentElement?.addEventListener("mousemove", handleMouseMove);
@@ -101,6 +99,12 @@ export default function HeroBg() {
     function draw() {
       ctx!.clearRect(0, 0, W, H);
 
+      cursorWindX = (mx - prevMx) * 0.15;
+      cursorWindY = (my - prevMy) * 0.15;
+
+      prevMx = mx;
+      prevMy = my;
+
       cursorWindX *= 0.85;
       cursorWindY *= 0.85;
 
@@ -112,7 +116,11 @@ export default function HeroBg() {
             H / 2 +
             Math.sin(x * 0.015 + t + i * 0.9) * 28 +
             Math.sin(x * 0.03 + t * 0.8 + i) * 14;
-          x === 0 ? ctx!.moveTo(x, y) : ctx!.lineTo(x, y);
+          if (x === 0) {
+            ctx!.moveTo(x, y);
+          } else {
+            ctx!.lineTo(x, y);
+          }
         }
         ctx!.strokeStyle = `rgba(168,200,74,${0.03 + i * 0.025})`;
         ctx!.lineWidth = 1;
