@@ -35,44 +35,58 @@ export default function WorksPage() {
         initial="hidden"
         animate="visible"
       >
-        {works.map((work, i) => (
-          <motion.div
-            key={i}
-            variants={fadeUp}
-            className="bg-card border border-card-border rounded-xl p-8 flex flex-col justify-between h-75 hover:border-primary/50 transition-colors duration-300"
-          >
-            <div>
-              <span className="text-sm font-mono text-foreground/40 block mb-3">
-                {work.num} / {work.category}
-              </span>
-              <h2 className="text-2xl font-bold mb-4">{work.title}</h2>
-              <p className="text-foreground/60 leading-relaxed text-sm">
-                {work.description}
-              </p>
-            </div>
-            <div className="flex gap-2 flex-wrap mt-4">
-              {work.tags.map((tag, tagIndex) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 rounded text-sm font-mono"
-                  style={
-                    tagIndex === 0
-                      ? {
-                          color: "var(--color-primary)",
-                          background: "rgba(168,200,74,0.08)",
-                        }
-                      : {
-                          color: "inherit",
-                          background: "rgba(255,255,255,0.05)",
-                        }
-                  }
-                >
-                  {tag}
+        {works.map((work, i) => {
+          const card = (
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              className="bg-card border border-card-border rounded-xl p-8 flex flex-col justify-between h-75 hover:border-primary/50 transition-colors duration-300"
+            >
+              <div>
+                <span className="text-sm font-mono text-foreground/40 block mb-3">
+                  {work.num} / {work.category}
                 </span>
-              ))}
-            </div>
-          </motion.div>
-        ))}
+                <h2 className="text-2xl font-bold mb-4">{work.title}</h2>
+                <p className="text-foreground/60 leading-relaxed text-sm">
+                  {work.description}
+                </p>
+              </div>
+              <div className="flex gap-2 flex-wrap mt-4">
+                {work.tags.map((tag, tagIndex) => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1 rounded text-sm font-mono"
+                    style={
+                      tagIndex === 0
+                        ? {
+                            color: "var(--color-primary)",
+                            background: "rgba(168,200,74,0.08)",
+                          }
+                        : {
+                            color: "inherit",
+                            background: "rgba(255,255,255,0.05)",
+                          }
+                    }
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          );
+          return work.link ? (
+            <Link
+              key={i}
+              href={work.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {card}
+            </Link>
+          ) : (
+            card
+          );
+        })}
       </motion.div>
     </div>
   );

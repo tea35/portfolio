@@ -4,6 +4,7 @@ export type Work = {
   title: string;
   description: string;
   tags: string[];
+  link?: string;
 };
 
 export const works: Work[] = [
@@ -22,13 +23,7 @@ export const works: Work[] = [
     description:
       "技術記事のリーディングリストを効率的に管理・ストックするためのChrome拡張機能。エンジニア向けの生産性向上ツール。",
     tags: ["TypeScript", "Chrome API"],
-  },
-  {
-    num: "03",
-    category: "Autonomous Driving",
-    title: "Surround Depth Estimation",
-    description: "自動運転技術",
-    tags: ["Python", "PyTorch"],
+    link: "https://chromewebstore.google.com/detail/popstack/eeipadcdbpekegbpnknmfgpdgamapkij",
   },
 ];
 

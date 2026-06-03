@@ -75,54 +75,69 @@ export default function WorksSection() {
           }}
           transition={{ duration: 0.6, ease }}
         >
-          {works.map((work, i) => (
-            <motion.div
-              ref={i === 0 ? cardRef : undefined}
-              key={i}
-              animate={{
-                opacity: i === currentIndex ? 1 : 0.3,
-                scale: i === currentIndex ? 1 : 0.8,
-                borderColor:
+          {works.map((work, i) => {
+            const card = (
+              <motion.div
+                ref={i === 0 ? cardRef : undefined}
+                key={i}
+                animate={{
+                  opacity: i === currentIndex ? 1 : 0.3,
+                  scale: i === currentIndex ? 1 : 0.8,
+                  borderColor:
+                    i === currentIndex
+                      ? "var(--color-primary)"
+                      : "rgba(255,255,255,0.08)",
+                }}
+                transition={{ duration: 1.0, ease }}
+                className={`relative shrink-0 w-[min(80vw,480px)] h-[40vh] md:h-[50vh] rounded-xl border bg-card overflow-hidden cursor-pointer ${
                   i === currentIndex
-                    ? "var(--color-primary)"
-                    : "rgba(255,255,255,0.08)",
-              }}
-              transition={{ duration: 1.0, ease }}
-              className={`relative shrink-0 w-[min(80vw,480px)] h-[40vh] md:h-[50vh] rounded-xl border bg-card overflow-hidden cursor-pointer ${
-                i === currentIndex
-                  ? "card-border-active border-transparent"
-                  : "border-white/8"
-              }`}
-            >
-              <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-between z-2">
-                <div>
-                  <span className="text-sm font-mono text-foreground/40 block mt-2">
-                    {work.num} / {work.category}
-                  </span>
-                  <h4 className="text-xl md:text-2xl font-bold mt-3">
-                    {work.title}
-                  </h4>
-                  <p className="text-foreground/60 mt-4 leading-relaxed text-sm">
-                    {work.description}
-                  </p>
-                </div>
-                <div className="flex gap-2 flex-wrap">
-                  {work.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 rounded text-sm font-mono"
-                      style={{
-                        color: "var(--color-primary)",
-                        background: "rgba(168,200,74,0.08)",
-                      }}
-                    >
-                      {tag}
+                    ? "card-border-active border-transparent"
+                    : "border-white/8"
+                }`}
+              >
+                <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-between z-2">
+                  <div>
+                    <span className="text-sm font-mono text-foreground/40 block mt-2">
+                      {work.num} / {work.category}
                     </span>
-                  ))}
+                    <h4 className="text-xl md:text-2xl font-bold mt-3">
+                      {work.title}
+                    </h4>
+                    <p className="text-foreground/60 mt-4 leading-relaxed text-sm">
+                      {work.description}
+                    </p>
+                  </div>
+                  <div className="flex gap-2 flex-wrap">
+                    {work.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 rounded text-sm font-mono"
+                        style={{
+                          color: "var(--color-primary)",
+                          background: "rgba(168,200,74,0.08)",
+                        }}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+
+            return work.link ? (
+              <Link
+                key={i}
+                href={work.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {card}
+              </Link>
+            ) : (
+              card
+            );
+          })}
 
           {/* See more カード */}
           <motion.div
