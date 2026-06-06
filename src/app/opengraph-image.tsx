@@ -19,19 +19,32 @@ export default async function OgImage() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
+        alignItems: "center",
         padding: "80px",
         position: "relative",
-        fontFamily: "Cinzel",
+        textAlign: "center",
       }}
     >
-      {/* 若草色のアクセントライン */}
+      {/* 上ライン */}
       <div
         style={{
           position: "absolute",
           top: 0,
           left: 0,
-          width: "4px",
-          height: "100%",
+          width: "100%",
+          height: "4px",
+          background: "#A8C84A",
+        }}
+      />
+
+      {/* 下ライン */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          width: "100%",
+          height: "4px",
           background: "#A8C84A",
         }}
       />
