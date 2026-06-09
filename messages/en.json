@@ -1,0 +1,13 @@
+{
+  "works": {
+    "triplist": {
+      "description": "A checklist tool for optimizing and managing travel essentials. Led frontend logic development as team leader in a 4-person team."
+    },
+    "popstack": {
+      "description": "A Chrome extension for efficiently managing and stacking technical article reading lists. A productivity tool for engineers."
+    }
+  },
+  "about": {
+    "description": "frontend Engineer"
+  }
+}

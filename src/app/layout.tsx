@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import { Cinzel, Zen_Kaku_Gothic_New } from "next/font/google";
 import { Inter } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import {
   SITE_DESCRIPTION,
   SITE_NAME,
@@ -21,6 +18,7 @@ export const metadata: Metadata = {
     "tea",
     "software engineer",
     "portfolio",
+    "frontend",
     "ソフトウェアエンジニア",
     "ポートフォリオ",
   ],
@@ -65,17 +63,13 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="ja"
       data-scroll-behavior="smooth"
       className={`${cinzel.variable} ${zenKaku.variable}`}
     >
       <body
         className={`font-[--font-body] ${inter.className} flex flex-col min-h-screen`}
       >
-        <Header />
         {children}
-        <Analytics />
-        <Footer />
       </body>
     </html>
   );

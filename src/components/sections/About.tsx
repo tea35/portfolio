@@ -29,7 +29,7 @@ export default function AboutSection() {
           whileInView="visible"
           viewport={vp}
         >
-          情報科学分野のエンジニア
+          Frontend Engineer for web.
         </motion.p>
       </div>
 

@@ -2,13 +2,16 @@
 
 import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import { ease, fadeLeft, fadeUp } from "@/lib/motion";
 import { works } from "@/constants/works";
 
 const vp = { once: true, margin: "-80px" } as const;
 
 export default function WorksSection() {
+  const t = useTranslations("works");
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const touchStartX = useRef(0);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -104,7 +107,7 @@ export default function WorksSection() {
                       {work.title}
                     </h4>
                     <p className="text-foreground/60 mt-4 leading-relaxed text-sm">
-                      {work.description}
+                      {t(`${work.descriptionKey}.description`)}
                     </p>
                   </div>
                   <div className="flex gap-2 flex-wrap">
