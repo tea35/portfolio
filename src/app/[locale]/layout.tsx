@@ -1,3 +1,4 @@
+import { NextIntlClientProvider } from "next-intl";
 import type { Metadata } from "next";
 import { Cinzel, Zen_Kaku_Gothic_New } from "next/font/google";
 import { Inter } from "next/font/google";
@@ -21,6 +22,7 @@ export const metadata: Metadata = {
     "tea",
     "software engineer",
     "portfolio",
+    "frontend",
     "ソフトウェアエンジニア",
     "ポートフォリオ",
   ],
@@ -72,10 +74,12 @@ export default function RootLayout({
       <body
         className={`font-[--font-body] ${inter.className} flex flex-col min-h-screen`}
       >
-        <Header />
-        {children}
-        <Analytics />
-        <Footer />
+        <NextIntlClientProvider>
+          <Header />
+          {children}
+          <Analytics />
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

@@ -1,11 +1,13 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { fadeUp, fadeLeft, stagger } from "@/lib/motion";
 import { works } from "@/constants/works";
 
 export default function WorksPage() {
+  const t = useTranslations();
   return (
     <div className="w-full min-h-screen bg-background text-foreground pt-24 pb-24">
       <div className="px-12 mb-16">
@@ -48,7 +50,7 @@ export default function WorksPage() {
                 </span>
                 <h2 className="text-2xl font-bold mb-4">{work.title}</h2>
                 <p className="text-foreground/60 leading-relaxed text-sm">
-                  {work.description}
+                  {t(`works.${work.descriptionKey}.description`)}
                 </p>
               </div>
               <div className="flex gap-2 flex-wrap mt-4">
